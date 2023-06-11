@@ -9,7 +9,7 @@ Online Code share, Note share, Link share, Share share share share Platform. Not
 
   <h1 style="text-decoration: underline;">
     <strong>
-      <a style="color:white;text-shadow: 0px 0px 25px white;" href="https://sohamkore.github.io/Noteboard-Online/">
+      <a style="color:white;text-shadow: 0px 0px 25px white;text-decoration:none;" href="https://sohamkore.github.io/Noteboard-Online/">
       PREVIEW PROJECT:
         </a>
     </strong>
