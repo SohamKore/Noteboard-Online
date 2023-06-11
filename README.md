@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/SohamKore/Noteboard-Online/blob/assets/Logo/logo.png" width="512" height="512" alt="Logo">
+  <img src="https://github.com/SohamKore/Noteboard-Online/blob/main/note%20solid.png" width="512" height="512" alt="Logo">
 </p>
 
 # Noteboard-Online
