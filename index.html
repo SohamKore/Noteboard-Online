@@ -1,0 +1,2049 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Board: Code, Notes, Links, Articles, Stories Sharing Board ONLINE</title>
+    <script src="https://kit.fontawesome.com/97cd91180b.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet"
+        type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+
+            /* overflow: hidden; */
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            transition: .3s;
+        }
+
+        body {
+            animation: bodyAnim 300ms ease-in-out forwards;
+            background-color: rgb(0, 14, 23);
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .container {
+
+            z-index: 0;
+            overflow: hidden;
+            background-color: rgb(0, 14, 23);
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .headLogoN {
+            background: linear-gradient(141deg, rgb(228, 106, 7) 16%, rgb(245, 61, 61) 35%,
+                    rgb(128, 0, 137) 100%);
+            height: 6.3vh;
+            box-shadow: 0px 0px 40px rgb(0, 106, 255);
+
+            border-radius: 10PX;
+            padding: 2px;
+            /* margin-right: 4vw; */
+        }
+
+        .headLogoN:hover {
+            transform: scale(1.1);
+            box-shadow: 0px -10px 40px rgb(234, 0, 255), 0px 10px 40px rgba(255, 51, 0, 0.61);
+            background: linear-gradient(141deg, rgb(128, 0, 137) 16%, rgb(245, 61, 61) 75%,
+                    rgb(228, 106, 7)100%);
+            
+                    /* background: linear-gradient(141deg, rgb(128, 0, 137) 16%, rgb(245, 61, 61) 75%,
+                    rgb(228, 106, 7)100%); */
+        }
+
+        .middleSec {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+
+        .midItems {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+
+        #end_icon {
+            text-shadow: 0px 0PX 20px rgb(0, 218, 214);
+            color: rgb(188, 238, 255);
+            /* margin-left: 7vh; */
+            font-size: 3vh;
+
+            border-radius: 100px;
+            padding: 1.5vh;
+        }
+
+        #end_icon:hover {
+            transform: translate(1.1);
+            text-shadow: 0px 0PX 40PX rgb(111, 167, 185);
+            background-color: rgba(0, 117, 195, 0.427);
+
+        }
+
+        .header {
+            overflow: hidden;
+            z-index: 2;
+            position: absolute;
+            background-color: rgb(0, 38, 63);
+            box-shadow: 0px 7px 12px rgba(0, 58, 97, 0.343);
+            width: 60vw;
+            height: 8.5vh;
+            border-radius: 0px 0px 20px 20px;
+            position: fixed;
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: space-around;
+
+        }
+
+        .wrapper {
+            z-index: 1;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            /* cursor:text; */
+            cursor: crosshair;
+        }
+
+        .wrapper::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tools {
+
+            overflow: hidden;
+            padding: 5px;
+            bottom: 0px;
+            position: absolute;
+            z-index: 2;
+            background-color: rgb(0, 38, 63);
+            width: 60vw;
+            height: 7.5vh;
+            border-radius: 20px 20px 0px 0px;
+            box-shadow: 0px -7px 12px rgba(0, 58, 97, 0.343);
+            border-radius: 20px 20px 0px 0px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #toolItem {
+            animation: menuAnim 300ms ease-in-out forwards;
+            /* background-color: red; */
+            height: 5vh;
+            width: 100%;
+            /* background-color: red; */
+        }
+
+        .colors {
+            border: 2px solid white;
+            box-shadow: 0px 0px 5px rgb(0, 157, 255);
+            box-shadow: inset 0px 0px 12px rgb(43, 144, 143);
+            width: 50%;
+            margin: 1vh;
+            /* background-color:cyan ; */
+            overflow-y: hidden;
+            overflow-x: scroll;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: flex-start;
+            align-items: center;
+            resize: both;
+            border-radius: 20px;
+        }
+
+        .colors::-webkit-scrollbar {
+            height: 1vh;
+            background-color: #ddf9ff00;
+        }
+
+        .colors::-webkit-scrollbar-thumb {
+            z-index: 9;
+            width: 1px;
+            box-shadow: 0px 0px 1px cyan;
+            border-radius: 100px;
+            overflow: visible;
+            background-color: #ddf9ff;
+        }
+
+        #colorOpt {
+            margin: 3px;
+            padding: 3vh;
+            /* background-color:white; */
+            height: 100%;
+            width: 100%;
+            border-radius: 100px;
+        }
+        #colorOpt:hover{
+                transform: scale(1.1);
+                outline: 1px solid white;
+                box-shadow: 0px 0px 30px black;
+            }
+
+            #colorOpt:active{
+                outline: 1px solid white;
+            }
+
+             #colorOpt::after{
+                outline: 1px solid white;
+            }
+        .whiteColor {
+            background-color: white;
+            box-shadow: 0px 0px 4px white;
+        }
+
+        .redColor {
+            background-color: red;
+            box-shadow: 0px 0px 4px red;
+        }
+
+        .greenColor {
+            background-color: green;
+            box-shadow: 0px 0px 4px green;
+        }
+
+        .blueColor {
+            background-color: blue;
+            box-shadow: 0px 0px 4px blue;
+        }
+
+        .yellowColor {
+            background-color: yellow;
+            box-shadow: 0px 0px 4px yellow;
+        }
+
+        .orangeColor {
+            background-color: orange;
+            box-shadow: 0px 0px 4px orange;
+        }
+
+        .pinkColor {
+            background-color: pink;
+            box-shadow: 0px 0px 4px pink;
+        }
+
+        .cyanColor {
+            background-color: cyan;
+            box-shadow: 0px 0px 4px cyan;
+        }
+
+        .blackColor {
+            background-color: black;
+            box-shadow: 0px 0px 4px black;
+        }
+
+        .brownColor {
+            background-color: brown;
+            box-shadow: 0px 0px 4px brown;
+        }
+
+        .tealColor {
+            background-color: teal;
+            box-shadow: 0px 0px 4px teal;
+        }
+
+        .size {
+            border: 2px solid white;
+            box-shadow: 0px 0px 5px rgb(0, 157, 255);
+            box-shadow: inset 0px 0px 12px rgb(43, 144, 143);
+            width: 30%;
+            height: 7vh;
+            margin: 1vh;
+            /* background-color:cyan ; */
+            overflow-y: hidden;
+            overflow-x: scroll;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: flex-start;
+            align-items: center;
+            resize: both;
+            border-radius: 20px;
+        }
+
+        .size::-webkit-scrollbar {
+            height: 1vh;
+        }
+
+        .size::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.475);
+            border-radius: 100px;
+        }
+
+        #sizeOpt {
+
+            padding: 10px;
+            /* background-color:white; */
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            text-shadow: 0px 0px 52px black;
+            flex-direction: row;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #icon {
+            text-shadow: 0px 0PX 20px rgb(0, 218, 214);
+            color: rgb(111, 167, 185);
+            margin-left: 3vh;
+            font-size: 3vh;
+            border: 2px solid rgb(0, 81, 122);
+            border-radius: 100px;
+            padding: 1vh;
+
+        }
+
+        icon:after {
+            color: red;
+        }
+
+        #icon:active {
+            color: red;
+            font-size: 4vh;
+            text-shadow: 0px 0PX 40PX rgb(111, 167, 185);
+            background-color: rgba(0, 117, 195, 0.427);
+        }
+
+        #icon:hover {
+            background: linear-gradient(141deg, rgb(228, 106, 7) 16%, rgb(245, 61, 61) 35%,
+                    rgb(128, 0, 137) 100%);
+            color: white;
+            transform: scale(1.1);
+            text-shadow: 0px 0PX 40PX rgb(111, 167, 185);
+            background-color: rgba(0, 117, 195, 0.427);
+        }
+
+        .penTools {
+            display: none;
+            /* display: flex; */
+            padding: 5px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .eraserTools {
+            display: none;
+            /* display: flex; */
+            /* background-color: red; */
+            padding: 5px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .textTools {
+            display: none;
+            /* display: flex; */
+            padding: 5px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .eraserSize {
+            border: 2px solid white;
+            box-shadow: 0px 0px 5px rgb(0, 157, 255);
+            box-shadow: inset 0px 0px 12px rgb(43, 144, 143);
+            /* color:; */
+            width: 30%;
+            height: 7vh;
+            margin: 1vh;
+            /* background-color:cyan ; */
+            overflow-y: hidden;
+            overflow-x: scroll;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: flex-start;
+            align-items: center;
+            resize: both;
+            border-radius: 20px;
+        }
+
+        .eraserSize::-webkit-scrollbar {
+            height: 1vh;
+        }
+
+        .eraserSize::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.475);
+            border-radius: 100px;
+        }
+
+        #undo {
+            /* float: right; */
+            color: rgb(0, 255, 255);
+            background-color: rgba(0, 0, 0, 0);
+            text-shadow: 0px 0px 10px rgb(0, 255, 225);
+            font-weight: 800;
+            border-radius: 40px;
+            right: 0;
+            position: absolute;
+            bottom: 0;
+            margin: 15px;
+            /* fon */
+            padding: 6px 12px 6px 12px;
+            border: 2px solid rgb(0, 255, 255);
+            box-shadow: 0px 0px 25px rgb(0, 121, 121);
+            /* box-shadow: inset 0px 0px 25px cyan; */
+        }
+
+        #undo::after {
+            background-color: #00303b;
+            color: black;
+        }
+
+        #undo:hover {
+            background-color: #00d0ff;
+            color: white;
+        }
+
+        .textDiv {
+            user-select: none;
+            position: absolute;
+            z-index: 100;
+            background-color: #00415071;
+            border-radius: 15px;
+            border: 2px solid teal;
+            box-shadow: 0px 0px 90px rgba(0, 255, 255, 0.184);
+            /* box-shadow: 7px 7px 0.1px black; */
+
+            overflow: hidden;
+        }
+
+        .textDiv::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* #textDIv{
+    display: flex;
+    flex-direction: column;
+} */
+        #divLabel {
+            display: flex;
+            height: 15%;
+            background-color: rgb(9, 87, 115);
+
+            background: linear-gradient(141deg, rgba(228, 106, 7, 0.416) 16%, rgb(175, 64, 0.64) 35%,
+                    rgb(128, 0, 0.137) 100%);
+
+            color: white;
+            text-shadow: 0px 0px 24px white;
+            box-shadow: 0px 0px 90px rgb(0, 255, 242);
+            cursor: move;
+            z-index: 200;
+
+            width: 100%;
+            font-size: 15px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #textArea {
+            width: 100%;
+            height: auto;
+            background-color: rgba(0, 0, 0, 0);
+            padding: 1px;
+            border: 0px;
+            color: white;
+            text-shadow: 0px 0px 24px white;
+            z-index: 99999;
+            /* padding: 10px; */
+
+            /* border-radius: 15px; */
+        }
+
+        #textArea::-webkit-scrollbar {
+            /* display: none;
+     */
+            width: 1vh;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        #textArea::-webkit-scrollbar-thumb {
+            /* color: red; */
+            background-color: #00d0ff1d;
+            width: 1vh;
+            border-radius: 100px;
+        }
+
+        #textArea::-webkit-resizer {
+            background-color: rgba(0, 234, 255, 0.214);
+            border-radius: 100px;
+            padding: 0;
+            margin: 0;
+            /* color: cyan; */
+        }
+
+        #textArea::placeholder {
+            font-size: smaller;
+            color: rgba(255, 255, 255, 0.431);
+            text-shadow: none;
+            /* color: cyan; */
+        }
+
+        .searchBar {
+            transition: 0.7s;
+            display: none;
+            height: 4vh;
+            margin-left: 10px;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #searchInput {
+            height: 100%;
+            width: auto;
+            /* position: absolute; */
+            z-index: 100;
+            /* padding: 5px; */
+            background-color: #00415071;
+            border-radius: 15px;
+            border: 2px solid teal;
+            /* overflow: scroll; */
+            box-shadow: 0px 0px 90px rgba(0, 255, 255, 0.184);
+            color: white;
+            text-align: center;
+            text-shadow: 0px 0px 3px white;
+            /* text-shadow: 0px 0px 4px white; */
+        }
+
+        #searchInput::placeholder {
+            text-shadow: 0px 0px 0px black;
+        }
+
+        #searchInput:hover {
+            color: rgb(0, 192, 192);
+            text-shadow: 0px 0px 12px cyan;
+            background-color: #00282f99;
+            margin-left: 1px;
+            padding: 0.7vh;
+        }
+
+        #searchBtn {
+            color: teal;
+            margin-left: 1px;
+            border: 2px solid;
+            padding: 1vh;
+            text-shadow: 0px 0px 12px cyan;
+            border-radius: 100px;
+        }
+
+        #searchBtn:hover {
+            color: rgb(0, 192, 192);
+            background-color: #00282f99;
+            margin-left: 1px;
+            padding: 1.5vh;
+
+        }
+
+        #searchBtn:active {
+            color: rgb(191, 255, 255);
+            background-color: teal;
+            margin-left: 1px;
+            padding: 1.5vh;
+
+        }
+
+        .tips {
+
+            color: rgba(255, 255, 255, 0.425);
+            z-index: 10;
+            text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.425);
+            font-weight: 10;
+            font-size: 9px;
+            text-align: right;
+            position: absolute;
+            position: absolute;
+            border-radius: 40px;
+            right: 0;
+
+            bottom: 6vh;
+            margin: 15px;
+            transition: 1s;
+
+
+        }
+
+        .tips:hover {
+
+            color: white;
+            text-shadow: 0px 0px 12px white, 0px 0px 12px rgb(0, 173, 150), 0px 0px 52px white;
+        }
+
+        #canvas {
+            z-index: 10;
+            max-zoom: 10;
+            overflow: scroll;
+            cursor: crosshair;
+            /* position: fixed;sss */
+        }
+
+
+
+        .menuLogo {
+            width: 6vw;
+            padding: 0;
+            margin: 0;
+            border-radius: 20px;
+        }
+
+        .menuLogo:hover {
+            transform: scale(1.1);
+        }
+
+        .siteName {
+            display: flex;
+            color: white;
+            text-shadow: 0px 0px 12px white;
+            text-align: center;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .board {
+            font-size: 18px;
+            text-shadow: 0px 0px 12px rgb(0, 230, 238);
+            color: rgb(0, 254, 254);
+        }
+
+
+        .menuItems {
+            overflow-x: hidden;
+            overflow-y: scroll;
+
+            background-color: #0000003c;
+            border-radius: 20px;
+            width: 90%;
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+
+        .menuItems::-webkit-scrollbar {
+            overflow: hidden;
+            width: 1vw;
+            border-radius: 100px;
+        }
+
+        .menuItems::-webkit-scrollbar-thumb {
+            overflow: hidden;
+            background-color: #ffffff9f;
+            border-radius: 100px;
+        }
+
+        #menuNavItem {
+
+            /* border: 1px solid white; */
+            border-radius: 10px;
+            padding: 2vh;
+            width: 70%;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+        }
+
+        #menuNavItem:first-child {
+            background-color: rgb(0, 255, 98);
+            box-shadow: 0px -10px 25px rgba(47, 255, 0, 0.546);
+            border-radius: 10px;
+            width: 80%;
+
+            text-decoration: none;
+            margin-top: 3vh;
+        }
+
+        #menuNavItem:first-child:hover {
+
+            box-shadow: 0px 10px 25px rgb(255, 0, 0), 0px -10px 25px rgba(144, 0, 255, 0.465), -17px 0px 25px rgba(255, 242, 0, 0.465);
+        }
+
+        #menuNavItem:hover {
+            transform: scale(1.1);
+            background: linear-gradient(141deg, rgb(228, 106, 7) 16%, rgb(245, 61, 61) 35%,
+                    rgb(128, 0, 137) 100%);
+            border-radius: 100px;
+
+        }
+
+        #menuNavItem::after {
+            background-color: #00303b;
+        }
+
+        marquee:hover {
+
+            text-shadow: 0px 0px 15px white;
+            background: linear-gradient(141deg, rgb(228, 106, 7) 16%, rgb(245, 61, 61) 35%,
+                    rgb(128, 0, 137) 100%);
+        }
+
+        #menuLink {
+            color: white;
+            width: 100%;
+            text-decoration: none;
+            text-shadow: 0px 0px 12px white;
+        }
+
+        hr {
+            width: 90%;
+            margin: 1vh;
+            border: .5px solid rgb(159, 255, 146);
+            border-radius: 10px;
+        }
+
+        .socials {
+            background-color: rgba(173, 250, 250, 0);
+            color: white;
+            text-shadow: 0px 0px 15px white;
+            border: 2px solid white;
+            border-radius: 12px;
+            width: 60%;
+            text-align: center;
+            margin-top: 5vh;
+            font-size: 15px;
+            padding: 1vh;
+        }
+
+        #menuIcons {
+            color: white;
+            font-size: 20px;
+            text-shadow: 0px 0px 12px white;
+        }
+
+        #socialIcons {
+            font-size: 25px;
+            padding: .5vh;
+            position: static;
+        }
+
+        #socialIcons:hover {
+            transform: scale(1.1);
+            background: linear-gradient(141deg, rgb(228, 106, 7) 16%, rgb(245, 61, 61) 35%,
+                    rgb(128, 0, 137) 100%);
+            border-radius: 5px;
+        }
+
+
+        .menu {
+            transition: 1s;
+            display: flex;
+            background-color: rgb(0, 38, 63);
+            background: linear-gradient(141deg, rgb(228, 106, 7) 16%, rgb(245, 61, 61) 35%,
+                    rgb(128, 0, 137) 100%);
+            box-shadow: 40px 0px 42px rgba(255, 73, 73, 0.364), 0px 0px 42px rgba(255, 0, 255, 0.23);
+            width: 18%;
+            position: absolute;
+            right: 0;
+            height: 90%;
+            z-index: 9999999;
+            border-radius: 20px 0px 0px 20px;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            animation: menuAnim 300ms ease-in-out forwards;
+        }
+
+        @keyframes menuAnim {
+            0% {
+                opacity: 0%;
+            }
+
+            100% {
+                opacity: 100%;
+            }
+        }
+
+
+        .saveDialog {
+            /* animation: menuAnim 300ms ease-in-out forwards; */
+
+            border-radius: 25px;
+            height: 40vh;
+            width: 40vw;
+            background-color: rgb(0, 68, 68);
+             background-size: 600% 600%;
+
+            background: linear-gradient(100deg, #f09509, #ff4343, #9500c5);
+            animation: bgAnim 5s ease infinite;
+            background-size: 600% 600%;
+
+            color: white;
+            box-shadow: 0px 0px 90px rgb(0 117 141 / 48%);
+            padding: 1vh;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-content: center;
+            align-items: center;
+        }
+
+        .dialogTop {
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-content: center;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1vh;
+        }
+
+        .dialogTitle {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: flex-start;
+        }
+
+        .dialogName {
+            text-align: center;
+            margin-left: .3vw;
+            width: auto;
+            font-size: 19px;
+        }
+
+        .dialogExit {
+            background: linear-gradient(141deg, rgba(255, 255, 255, 0.459) 10%, rgba(255, 255, 255, 0.01) 60%);
+            color: white;
+            background-color: rgba(255, 255, 255, 0.27);
+
+            border-radius: 100px ;
+            height: auto;
+            width: auto;
+            margin-right: .3vw;
+
+            padding-inline: .5vh;
+        }
+
+        .dialogExit:hover {
+            transform: scale(1.1);
+            background: linear-gradient(141deg, rgba(255, 255, 255, 0.124) 10%, rgba(255, 255, 255, 0.474) 60%);
+
+        }
+
+        #exitIcon {
+            color: rgb(255, 255, 255);
+            border-radius: 100px;
+            padding: 1vh;
+            font-size: larger;
+        }
+
+        .exBoard {
+            color: rgb(0, 246, 251);
+            text-shadow: 0px 0px 20px cyan;
+        }
+
+        form {
+            width: 100%;
+            height: 100%;
+            margin: 1vh;
+        }
+
+        .dialogFormTxt {
+            padding-bottom: 1vh;
+            text-shadow: 0px 0px 10px white;
+            font-size: 14px;
+        }
+
+        .dialHr {
+            color: white;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            background-color: rgb(0, 255, 255);
+            border-radius: 100px;
+            border: 1px solid white;
+            box-shadow: 0px 0px 20px white;
+            margin-bottom: 1vh;
+        }
+
+        .dialog1st {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-content: center;
+        }
+
+        input {
+            background-color: rgba(255, 255, 255, 0.104);
+            width: 95%;
+            box-shadow: 0px 2px .1px rgb(255, 255, 255);
+            padding: .5vh;
+            border: 0;
+            font-size: larger;
+            border-radius: 5px;
+            font-weight: 100;
+            color: rgb(255, 237, 74);
+            text-shadow: 2px 2px .1px rgb(233, 0, 47);
+            margin-bottom: 1vh;
+        }
+
+        input:focus {
+            border: 0;
+            outline: 0;
+        }
+
+        input::placeholder {
+            color: rgb(255, 255, 255);
+            text-shadow: 0px 0px 6px rgb(54, 40, 40);
+        }
+
+        .linkBar {
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .linkOutput {
+            user-select: text;
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-shadow: none;
+            text-align: center;
+            font-size: medium;
+            letter-spacing: 2px;
+            background: linear-gradient(141deg, rgb(228, 106, 7) 16%, rgb(245, 61, 61) 35%, rgb(128, 0, 137) 100%);
+            border: 1px solid cyan;
+            width: 80%;
+        }
+
+        #copyBtn {
+            text-shadow: 0px 0px 7px black;
+            font-size: large;
+            padding: 1vh;
+            margin: 1vh;
+            color: rgb(255, 255, 255);
+            border-bottom: 4px solid rgb(0, 247, 255);
+
+            background-color: rgba(244, 244, 244, 0.403);
+            border-radius: 10px;
+        }
+
+        #copyBtn:hover {
+            transform: scale(1.1);
+        }
+
+        #copyBtn::after {
+            color: crimson;
+            transform: scale(1.1);
+        }
+
+        .btn {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        #saveBoardBtn {
+            background-color: rgb(85, 211, 85);
+            width: 50%;
+            color: white;
+            text-shadow: 0px 0px 12px white;
+            border: none;
+            box-shadow: 0px -7px 20px rgba(32, 255, 2, 0.456);
+        }
+
+        #saveBoardBtn:hover {
+            transform: scale(1.1);
+            border: 1px solid slime;
+            box-shadow: 0px 7px 20px rgba(32, 255, 2, 0.711);
+        }
+
+        .saveContainer {
+            display: none;
+
+            background-color: rgba(0, 0, 0, 0.400);
+            position: absolute;
+            z-index: 999999;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            transition: 1s;
+            animation: ease;
+        }
+
+        .save {
+            background-color: rgb(0, 38, 63);
+            box-shadow: 0px 0px 12px rgba(0, 58, 97, 0.43);
+            position: absolute;
+            left: 0;
+            top: 50;
+            margin: 2vh;
+            border-radius: 100px;
+            padding: 1vh;
+            z-index: 999;
+        }
+
+        .save:hover {
+            transform: scale(1.2);
+            box-shadow: 0px 0px 12px rgba(0, 58, 97, 0.873);
+        }
+
+        #saveIconMain {
+            text-shadow: 0px 0PX 20px rgb(0, 218, 214);
+            color: rgb(111, 167, 185);
+            font-size: 3vh;
+            border: 2px solid rgb(0, 81, 122);
+            border-radius: 100px;
+            padding: 1vh;
+        }
+
+        .donateMenu {
+            /* border: 1px solid white; */
+            /* border-radius: 10px; */
+            padding: 1vh;
+            margin: 1vh;
+            width: 80%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .donateMenu:hover {
+            background-color: rgb(4, 19, 38);
+            border-radius: 100px;
+            box-shadow: 0px 0px 10px rgb(4, 19, 38), 1px 1px white, -1px -1px rgb(34, 255, 0);
+            transform: scale(1.1);
+        }
+
+        #donateTxt {
+            display: flex;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            width: 100%;
+            text-shadow: 0px 0px 12px white;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #supportMe {
+            font-size: xx-small;
+            display: flex;
+            text-align: center;
+            text-decoration: none;
+            color: rgb(13, 255, 0);
+            width: 100%;
+            text-shadow: 0px 0px 18px rgb(68, 255, 0), 0px 0px 18px rgb(68, 255, 0), 0px 0px 18px rgb(68, 255, 0), 0px 0px 18px rgb(68, 255, 0);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contactContainer {
+            display: none;
+
+            z-index: 999999;
+            position: absolute;
+        
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-content: center;
+        }
+        .feedbackTxtArea{
+            border-radius: 10px;
+            outline: 1px solid white;
+            background-color: #ffffff60;
+            color:white;
+            text-shadow:  0px 0px 15px white;
+        }
+        .feedbackTxtArea::placeholder{
+            color: white;
+            
+        }
+        .contactDialogTitle{
+            width: auto;
+            float: right;
+            position: absolute;
+            right: 45px;
+        }
+
+        .dialogLogo{
+            width: 3.5vw;
+        }
+        .shareFormTxt{
+            font-size: smaller;
+            text-align: center;
+        }
+
+
+        @media screen and (max-width: 600px) {
+
+
+            .header {
+                overflow: hidden;
+                width: 100%;
+            }
+
+            .headLogoN {
+                height: 30px;
+            }
+
+            .startLogo {
+                margin-left: 1vw;
+            }
+
+            #icon {
+
+                margin-left: 1vh;
+                font-size: 2vh;
+
+                padding: 1vh;
+            }
+
+            .siteName {
+                font-size: 6px;
+            }
+
+            .board {
+                font-size: 6px;
+            }
+
+            .menu {
+                width: 15%;
+                height: 70%;
+            }
+            .menuItems{
+                width: 100%;
+            }
+
+            #menuLink {
+                display: none;
+            }
+
+            #menuNavItem {
+                /* border: 1px solid white; */
+                /* border-radius: 10px; */
+                padding: 1vh;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                flex-direction: row-reverse;
+                align-items: center;
+            }
+
+            .newBoardMenu {
+                box-shadow: 0px 0px 25px white;scroll-margin-bottom: ;
+            }
+
+            .tools {
+                padding: .5vh;
+                width: 100%;
+                height: 5vh;
+            }
+
+            #colorOpt {
+                margin: 3px;
+                padding: 1.5vh;
+                /* background-color: white; */
+                height: 100%;
+                width: 100%;
+                border-radius: 100px;
+            }
+         
+
+            .size {
+                width: 30%;
+                height: 5vh;
+                margin: .5vh;
+                border-radius: 20px;
+            }
+
+            .eraserSize {
+                width: 70%;
+                height: 5vh;
+                margin: 1vh;
+            }
+
+            #menuNavItem:first-child {
+                border-radius: 100px;
+                text-decoration: none;
+                width: auto;
+            }
+
+            #undo {
+                /* float: right; */
+
+                font-weight: 300;
+                border-radius: 40px;
+                right: 0;
+                position: absolute;
+                bottom: 10%;
+                /* fon */
+                padding: 6px 12px 6px 12px;
+                /* box-shadow: inset 0px 0px 25px cyan; */
+            }
+
+            #textArea::-webkit-resizer {
+                background-color: rgba(0, 251, 255, 0.805);
+                border-radius: 100px;
+                padding: 7px;
+                margin: 5px;
+                /* color: cyan; */
+            }
+
+            #supportMe{
+               text-shadow: 0px 0px 12px lime;
+               font-size: 5px;
+            }
+            #donateTxt{
+                font-size: xx-small;
+                color: white;
+                font-weight: 600;
+                text-shadow: 0px 0px 12px rgb(0, 255, 55);
+                border-radius: 100px;  
+            }
+            .contactDialogTitle{
+           display: none;
+        }
+        .dialogLogo{
+            width: 40px;
+        }
+        .dialogName{
+            font-size: xx-small;
+        }
+        #saveBoardBtn{
+            font-size: x-small;
+        }
+         
+        .dialogInput{
+            font-size: xx-small;
+        }
+
+        .linkOutput{
+            font-size: xx-small;
+        }
+        .shareFormTxt{
+            display: none;
+            font-size: xx-small;
+            text-align: center;
+        }
+
+    }
+
+        @-webkit-keyframes bgAnim {
+    0%{background-position:0% 34%}
+    50%{background-position:100% 67%}
+    100%{background-position:0% 34%}
+}
+@-moz-keyframes bgAnim {
+    0%{background-position:0% 34%}
+    50%{background-position:100% 67%}
+    100%{background-position:0% 34%}
+}
+@-o-keyframes bgAnim {
+    0%{background-position:0% 34%}
+    50%{background-position:100% 67%}
+    100%{background-position:0% 34%}
+}
+@keyframes bgAnim {
+    0%{background-position:0% 34%}
+    50%{background-position:100% 67%}
+    100%{background-position:0% 34%}
+}
+    </style>
+
+</head>
+
+<body>
+    <div class="save" onclick="saveClick()">
+        <i id="saveIconMain" class="fa-solid fa-floppy-disk"></i> 
+    </div>
+
+    <div class="saveContainer">
+        <div class="saveDialog">
+            <form action="POST">
+                <div class="dialogTop">
+                    <div class="dialogTitle">
+                        <img class="dialogLogo" src="note solid.png" alt="N">
+                        <label class="dialogName"" for=" menuLogo">PASTE |<span class="exBoard">| BOARD</span></label>
+                    </div>
+                    <div class="dialogExit" onclick="dialogExit()">
+                        <i id="exitIcon" class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+                <hr class="dialHr">
+                <div class="dialog1st">
+                    <label class="dialogFormTxt" for="boardTitle">Board Title<span
+                            style="color:red;font-weight: 900;font-size: larger; text-shadow:0px 0px 12px red,0px 0px 12px red, 0px 0px 20px red,0px 0px 12px red,0px 0px 12px red;">*</span></label>
+                    <input class="dialogInput" type="text" placeholder="Board title is...." required="true" minlength="10">
+                    <label class="dialogFormTxt" for="boardTitle">Board Description(Optional)</label>
+                    <input class="dialogInput" type="text" placeholder="Board description is....">
+                    <br>
+                    <div class="btn"> <input id="saveBoardBtn" type="submit" value="Save & Share"> </div>
+
+
+                    <div class="linkBar">
+                        <label class="shareFormTxt"
+                        >Board share link</label>
+                        <input class="linkOutput" value="noteboard.com/niggabech" type="text"
+                            placeholder="Save to get link..." readonly>
+
+                        <i class="fa-regular fa-copy" id="copyBtn"></i>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <div class="contactContainer">
+        <div class="saveDialog">
+            <form action="POST">
+                <div class="dialogTop">
+                    <div class="dialogTitle">
+                        <img class="dialogLogo" src="note solid.png" alt="N">
+                        <label class="dialogName"" for=" menuLogo">PASTE |<span class="exBoard">| BOARD</span></label>
+                        
+                        <label class="contactDialogTitle">CONTACTS</label>
+                    </div>
+                    <div class="dialogExit" onclick="dialogExit()">
+                        <i id="exitIcon" class="fa-solid fa-xmark"></i>
+                    </div>
+                </div>
+                <hr class="dialHr">
+                <div class="contactDialog">
+                    <label class="dialogFormTxt" for="boardTitle">Email: </label>
+                    <label class="dialogFormTxt" for="boardTitle">sxhamk@gmail.com</label>
+                    <hr>
+                    <label class="dialogFormTxt" for="boardTitle">Website: </label>
+                    <label class="dialogFormTxt" for="boardTitle">www.sohamko.re</label>
+                    <hr>
+                    <label class="dialogFormTxt" for="boardTitle">Feedback/Issues/Suggestions/Solutions</label>
+                    <textarea class="feedbackTxtArea" type="text" placeholder="Please feel FREE to reach out, Type your response here."
+                        cols="50" rows="4"></textarea>
+                    <br>
+                    <div class="btn"> <input id="saveBoardBtn" type="submit" value="Send"> </div>
+                            
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <marquee behavior="" direction="left" style="font-size: small;background-color: #0000003c;z-index: 99999999;top: 0; user-select: none;
+     position: absolute; color:rgba(255, 255, 255, 0.557);">Hold down any key and draw to go Rainbow mode |
+        Hold down any key to Increase pen size |
+        CTRL+Z to undo drawing || This web app is still in development phase if any errors occur please understand this
+        is not the final quality of this product. </marquee>
+    <div class="menu">
+        <img class="menuLogo" src="note solid.png" alt="N">
+        <label class="siteName"" for=" menuLogo">PASTE |<span class="board"><b>| BOARD</b></span></label>
+        <div class="menuItems">
+            <div id="menuNavItem" class="newBoardMenu">
+
+                <i id="menuIcons" class="fa-solid fa-plus"></i>
+                <a href="#" id="menuLink">NEW BOARD</a>
+            </div>
+            <hr>
+            <div id="menuNavItem" class="homeMenu">
+
+                <i id="menuIcons" class="fa-solid fa-house-chimney"></i>
+                <a href="#" id="menuLink">HOME</a>
+
+            </div>
+            <div id="menuNavItem" class="trendingMenu">
+                <i id="menuIcons" class="fa-solid fa-chart-simple"></i>
+                <a href="#" id="menuLink">TRENDING</a>
+
+            </div>
+
+            <div id="menuNavItem" class="recentMenu">
+                <i id="menuIcons" class="fa-solid fa-clock-rotate-left"></i>
+                <a href="#" id="menuLink">RECENT</a>
+            </div>
+            <div  onclick="contactMenu()" id="menuNavItem" class="contactMenu">
+                <i id="menuIcons" class="fa-solid fa-address-book"></i>
+                <a href="#" id="menuLink">CONTACT</a>
+            </div>
+            <div class="donateMenu">
+                <a target="_blank" href="https://www.buymeacoffee.com/sohamk" id="donateTxt">DONATE</a>
+                <a target="_blank" href="https://www.buymeacoffee.com/sohamk" id="supportMe">Support me</a>
+            </div>
+            <div class="socials">
+                <i id="socialIcons" class="fa-brands fa-facebook"></i>
+                <i id="socialIcons" class="fa-brands fa-twitter"></i>
+                <i id="socialIcons" class="fa-brands fa-instagram"></i>
+                <i id="socialIcons" class="fa-brands fa-youtube"></i>
+            </div>
+
+        </div>
+    </div>
+    <div class="container" id="container">
+        <div class="header">
+            <div class="startLogo">
+                <img onclick="headLogoClick()" class="headLogoN" src="note solid.png" alt="N" style="box-shadow: 35px 35px 0.2px black;">
+            </div>
+            <div class="middleSec">
+                <div class="midItems">
+                    <i class="fa-solid fa-pen" id="icon" onclick="penClick()"></i>
+                    <i class="fa-solid fa-eraser" id="icon" onclick="eraserClick()"></i>
+                    <i class="fa-solid fa-pen-to-square" id="icon" onclick="textClick()"></i>
+                    <i class="fa-solid fa-magnifying-glass" id="icon" onclick="searchClick()"></i>
+                    <div class="searchBar">
+                        <input id="searchInput" type="search" placeholder="What are you looking for?">
+                        <i class="fa-solid fa-magnifying-glass" id="searchBtn" onclick="searchClick()"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="endSec">
+                <i class="fa-solid fa-bars" id="end_icon" onclick="menuClick()"></i>
+                
+            </div>
+        </div>
+        <div class="wrapper" id="wrapper">
+
+            <button id="undo" onclick="undoAction()">Undo</button>
+            <div class="tips">Hold down any key and draw to go Rainbow mode<br>
+                Hold down any key to Increase pen size<br>
+                CTRL+Z to undo drawing <br>
+            </div>
+            <canvas id="canvas"></canvas>
+        </div>
+        <div class="tools" id="toolss">
+
+            <div id="toolItem" class="penTools">
+
+                <div class="colors">
+                    <div onclick="colorClick()" id="colorOpt" class="whiteColor"></div>
+                    <div onclick="colorClick()" id="colorOpt" class="redColor"></div>
+                    <div onclick="colorClick()" id="colorOpt" class="greenColor"></div>
+                    <div onclick="colorClick()" id="colorOpt" class="blueColor"></div>
+                    <div onclick="colorClick()" id="colorOpt" class="yellowColor"></div>
+                    <div onclick="colorClick()" id="colorOpt" class="orangeColor"></div>
+                    <div onclick="colorClick()" id="colorOpt" class="pinkColor"></div>
+                    <div onclick="colorClick()" id="colorOpt" class="cyanColor"></div>
+                    <div onclick="colorClick()" id="colorOpt" class="brownColor"></div>
+                    <div onclick="colorClick()" id="colorOpt" class="tealColor"></div>
+                    <div onclick="colorClick()" id="colorOpt" class="blackColor"></div>
+                </div>
+                <div class="size">
+                    <div onclick="smallestClick()" id="sizeOpt" class="smallest"><i
+                            class="fa-solid fa-circle fa-2xs fa-flip" style="color: rgb(0, 76, 82);"></i></div>
+                    <div onclick="smallClick()" id="sizeOpt" class="small"><i class="fa-solid fa-circle fa-xs fa-flip"
+                            style="color: rgb(0, 76, 82);"></i></div>
+                    <div onclick="normalClick()" id="sizeOpt" class="normal"><i class="fa-solid fa-circle fa-sm fa-flip"
+                            style="color: rgb(0, 76, 82);"></i></div>
+                    <div onclick="bigClick()" id="sizeOpt" class="big"><i class="fa-solid fa-circle fa-lg fa-flip"
+                            style="color: rgb(0, 76, 82);"></i></div>
+                    <div onclick="biggestClick()" id="sizeOpt" class="biggest"><i
+                            class="fa-solid fa-circle fa-xl fa-flip" style="color: rgb(0, 76, 82);"></i></div>
+                </div>
+
+                <div class="stroke"></div>
+            </div>
+            <div id="toolItem" class="eraserTools">
+
+                <div class="eraserSize">
+                    <div onclick="smallestClick()" id="sizeOpt" class="smallest"><i
+                            class="fa-solid fa-circle fa-2xs fa-flip" style="color: rgb(0, 76, 82);"></i></div>
+                    <div onclick="smallClick()" id="sizeOpt" class="small"><i class="fa-solid fa-circle fa-xs fa-flip"
+                            style="color: rgb(0, 76, 82);"></i></div>
+                    <div onclick="normalClick()" id="sizeOpt" class="normal"><i class="fa-solid fa-circle fa-sm fa-flip"
+                            style="color: rgb(0, 76, 82);"></i></div>
+                    <div onclick="bigClick()" id="sizeOpt" class="big"><i class="fa-solid fa-circle fa-lg fa-flip"
+                            style="color: rgb(0, 76, 82);"></i></div>
+                    <div onclick="biggestClick()" id="sizeOpt" class="biggest"><i
+                            class="fa-solid fa-circle fa-xl fa-flip" style="color: rgb(0, 76, 82);"></i></div>
+                </div>
+            </div>
+            <div id="toolItem" class="textTools"></div>
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+        
+
+
+function saveClick() {
+            document.querySelector(".saveContainer").style.display = "flex"
+
+            //
+            //   var value = form1.txt_area.value;
+            // console.log("note:"+value);
+
+            var textAreaTxt = textArea.value;
+            console.log("Text Area text:" + textAreaTxt);
+
+            var divLabelTxt = divLabel.value;
+            console.log("Text Area Title:" + divLabelTxt);
+        }
+        
+        function dialogExit() {
+            document.querySelector(".saveContainer").style.display = "none"
+            document.querySelector(".contactContainer").style.display = "none"
+        }
+        function contactMenu() {
+            document.querySelector(".contactContainer").style.display = "flex"
+        }
+
+
+    function headLogoClick(){
+
+}
+
+
+
+
+        function inputChange(id) {
+            const textAreaInput = document.getElementById("textArea").value;
+
+
+
+            if (textAreaInput == "\\delete" || textAreaInput == "\\DELETE" || textAreaInput == "\\Delete") {
+                id.parentNode.remove();
+            }
+            if(textAreaInput == "\\soham" || textAreaInput == "\\Soham"){
+                alert("Ayyyy Its Me, This website is being developed by Soham Kore")
+                console.log("Ayyyy Its Me, This website is being developed by Soham Kore")
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        // wait for the content of the window element
+        // to load, then performs the operations.
+        // This is considered best practice.
+
+        window.addEventListener('load', () => {
+
+            resize(); // Resizes the canvas once the window loads
+            document.addEventListener('mousedown', startPainting);
+            document.addEventListener('mouseup', stopPainting);
+            document.addEventListener('mousemove', sketch);
+            window.addEventListener('resize', resize);
+            window.addEventListener('keydown', keyd);
+        });
+
+        var curColor = "red"
+        var curSize = 5
+
+        document.addEventListener("keydown", (event) => {
+            if (event.ctrlKey && event.key === "z") {
+
+                undoAction();
+            }
+        });
+        function undoAction() {
+            console.log("Undo!");
+            Undo();
+        }
+
+
+
+
+        const canvas = document.querySelector('#canvas');
+
+        // Context for the canvas for 2 dimensional operations
+        var ctx = canvas.getContext('2d');
+        // Resizes the canvas to the available size of the window.
+        function resize() {
+            ctx.canvas.width = window.innerWidth;
+            ctx.canvas.height = window.innerHeight;
+        }
+        var clicks = 0;
+        var colors = ["red", "blue", "pink", "green", "green", "yellow", "orange", "white"];
+
+        function keyd() {
+            clicks++;
+            curSize++;
+            console.log("clicks: " + clicks)
+            if (clicks > 7) { clicks = 0 }
+            curColor = colors[clicks]
+        }
+
+        let drawing = false;
+        let pathsry = [];
+        let points = [];
+
+        var mouse = { x: 0, y: 0 };
+        var previous = { x: 0, y: 0 };
+
+        // Stores the initial position of the cursor
+        let coord = { x: 0, y: 0 };
+
+        // This is the flag that we are going to use to 
+        // trigger drawing
+        let paint = false;
+
+        // Updates the coordianates of the cursor when 
+        // an event e is triggered to the coordinates where 
+        // the said event is triggered.
+        function getPosition(event) {
+            coord.x = event.clientX - canvas.offsetLeft;
+            coord.y = event.clientY - canvas.offsetTop;
+        }
+
+        // The following functions toggle the flag to start
+        // and stop drawing
+        function startPainting(event) {
+            paint = true;
+            getPosition(event);
+
+            drawing = true;
+            previous = { x: mouse.x, y: mouse.y };
+            mouse = oMousePos(canvas, event);
+            points = [];
+            points.push({ x: mouse.x, y: mouse.y })
+
+        }
+        function stopPainting() {
+            paint = false;
+            console.log("stopPainting")
+
+            drawing = false;
+            // Adding the path to the array or the paths
+            pathsry.push(points);
+        }
+        document.getElementById("undo").addEventListener("click",
+            undoAction())
+        undo.addEventListener("click", Undo);
+
+        function Undo() {
+            // remove the last path from the paths array
+            pathsry.splice(-1, 120);
+            // draw all the paths in the paths array
+            drawPaths();
+        }
+
+
+
+
+
+        function sketch(event) {
+            if (!paint) return;
+            ctx.beginPath();
+
+            previous = { x: mouse.x, y: mouse.y };
+            mouse = oMousePos(canvas, event);
+            // saving the points in the points array
+            points.push({ x: mouse.x, y: mouse.y })
+
+            ctx.lineWidth = curSize;
+
+            // Sets the end of the lines drawn
+            // to a round shape.
+            ctx.lineCap = 'round';
+
+            ctx.strokeStyle = curColor;
+
+
+
+            // The cursor to start drawing
+            // moves to this coordinate
+            ctx.moveTo(coord.x, coord.y);
+
+            // The position of the cursor
+            // gets updated as we move the
+            // mouse around.
+            getPosition(event);
+
+            // A line is traced from start
+            // coordinate to this coordinate
+            ctx.lineTo(coord.x, coord.y);
+
+            // Draws the line.
+            ctx.stroke();
+
+
+
+
+            //// OWN JSSSSSSSSSSSSSSSS
+            // ??
+            // /
+
+            ctx.shadowBlur = 40;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.shadowColor = curColor;
+
+        }
+
+
+        // a function to detect the mouse position
+        // mouse = oMousePos(canvas, evt);
+        function oMousePos(canvas, evt) {
+            var ClientRect = canvas.getBoundingClientRect();
+            return { //objeto
+                x: Math.round(evt.clientX - ClientRect.left),
+                y: Math.round(evt.clientY - ClientRect.top)
+            }
+        }
+
+        function drawPaths() {
+            // delete everything
+            // ctx.clearRect(0,0,canvas.width,canvas.height);
+            resize();
+            // draw all the paths in the paths array
+            pathsry.forEach(path => {
+                ctx.beginPath();
+                ctx.moveTo(path[0].x, path[0].y);
+                for (let i = 1; i < path.length; i++) {
+                    ctx.strokeStyle = curColor;
+                    ctx.shadowBlur = 50;
+                    ctx.shadowOffsetX = 0;
+                    ctx.shadowOffsetY = 0;
+                    ctx.shadowColor = curColor;
+                    ctx.lineWidth = curSize;
+
+                    ctx.lineTo(path[i].x, path[i].y);
+                    // ctx.lineTo(coord.x , coord.y);
+                    console.log(path[i].x + "and" + path[i].y)
+                }
+                ctx.stroke();
+            })
+        }
+
+
+
+    </script>
+
+    <script>
+
+
+
+
+
+        function startPen() {
+            ctx.globalCompositeOperation = 'source-over' // new
+        }
+        function startEraser() {
+            ctx.globalCompositeOperation = 'destination-out';
+        }
+
+
+
+
+        const colorOpt = document.getElementById("colorOpt");
+        function colorClick(e) {
+            //GETs Which Color Element Is Clicked
+            e = e || window.event;
+            var ColorIs = e.target.className
+            var ColorIsColor = ColorIs.replace('Color', '');
+            curColor = ColorIsColor
+
+        }
+
+        // function sizeClick(e){
+        //     e = e || window.event;
+        //     var SizeIIs = e.target.className
+        //     alert(SizeIIs)
+        //     // curSize = 
+        // }
+        function smallestClick() { curSize = 1; document.querySelector(".menu").style.display = "none" } function smallClick() { curSize = 2 } function normalClick() { curSize = 4 }
+        function bigClick() { curSize = 7; console.log("big") } function biggestClick() { curSize = 10; console.log("biggest") }
+        var penTools = document.getElementsByClassName("penTools");
+        const eraserTools = document.getElementsByClassName("eraserTools");
+        const textTools = document.getElementsByClassName("textTools");
+
+
+        var lastPenSize = 5;
+        function eraserClick() {
+            eraserMode = true;
+            lastPenSize = curSize;
+            document.querySelector(".penTools").style.display = "none"
+            document.querySelector(".eraserTools").style.display = "flex"
+            document.querySelector(".textTools").style.display = "none"
+            document.querySelector(".searchBar").style.display = "none"
+            document.querySelector(".menu").style.display = "none"
+
+            startEraser();
+            ctx.globalCompositeOperation = 'destination-out';
+
+            ctx.fillStyle = 'rgba(0,0,0,1)';
+            ctx.strokeStyle = 'rgba(0,0,0,1)';
+            ctx.lineWidth = 5;
+        }
+        function penClick() {
+            curSize = lastPenSize;
+            document.querySelector(".penTools").style.display = "flex"
+            document.querySelector(".eraserTools").style.display = "none"
+            document.querySelector(".textTools").style.display = "none"
+            document.querySelector(".searchBar").style.display = "none"
+            document.querySelector(".menu").style.display = "none"
+
+            ctx.lineWidth = curSize;
+
+            ctx.globalCompositeOperation = 'source-over' // new
+
+        }
+        function textClick() {
+            document.querySelector(".penTools").style.display = "none"
+            document.querySelector(".eraserTools").style.display = "none"
+            document.querySelector(".textTools").style.display = "flex"
+            document.querySelector(".searchBar").style.display = "none"
+            document.querySelector(".menu").style.display = "none"
+            poke();
+            //     var input = new CanvasInput({
+            //                      canvas: document.getElementById('canvas')
+            //          });
+
+            //     var child = document.createElement("CanvasInput");
+            // var demo = document.createTextNode("Example");
+            // child.appendChild(demo);
+            // document.getElementById("canvas").appendChild(child);
+
+
+        }
+        function searchClick() {
+            document.querySelector(".searchBar").style.display = "flex"
+            document.querySelector(".menu").style.display = "none"
+        }
+
+
+        var onClick = 1;
+        console.log(onClick)
+
+        function menuClick() {
+            onClick = onClick + 1;
+
+            switch (onClick) {
+                case 1:
+                    // alert('yo');
+                    document.querySelector(".menu").style.display = "flex"
+                    console.log("cs1" + onClick)
+                    break;
+                case 2:
+                    // alert('its second click');
+                    document.querySelector(".menu").style.display = "none"
+                    console.log("cs2" + onClick)
+                    onClick = 0;
+            }
+
+        }
+
+
+
+    </script>
+    <script type="text/javascript"
+        src="http://goldfirestudios.com/proj/canvasinput/CanvasInput.min.js?v=1.2.0"></script>
+</body>
+<script>
+
+
+    var isResizing = false;
+    var windowNum = 0;
+    var mousePosition;
+    var offset = [0, 1];
+    var div;
+    var isDown = false;
+
+    function poke() {
+        windowNum = windowNum + 1;
+
+        var textDiv = document.createElement("div");
+        textDiv.setAttribute("id", "textDiv" + windowNum);
+        textDiv.setAttribute("class", "textDiv");
+        var divLabel = document.createElement("div");
+
+        divLabel.setAttribute("id", "divLabel");
+        divLabel.setAttribute("contenteditable", "true");
+
+        var textArea = document.createElement('textarea'); // creates the element
+        textArea.setAttribute("id", "textArea")
+        textArea.setAttribute("name", "textArea")
+        textArea.setAttribute("placeholder", "Type \"\\delete\" OR \"\\DELETE\" (without quotations) in empty TextBox to delete it.  ")
+        textArea.setAttribute("onkeyup", "inputChange(this)")
+        textArea.setAttribute("row", "5")
+        textArea.setAttribute("columns", "50")
+
+
+        textDiv.style.position = 'absolute';  // position it
+        textDiv.style.left = '100px';
+        textDiv.style.top = '100px';
+
+        divLabel.append("Hold here and drag")
+        textDiv.appendChild(divLabel)
+        textDiv.appendChild(textArea)
+        function getCurElement() {
+            return textDiv
+        }
+
+        document.getElementById("wrapper").appendChild(getCurElement()); // add it as last child of body elemnt
+
+
+        //     alert("ayo")
+        //     div = document.createElement("div");
+        // div.style.position = "absolute";
+        // div.style.left = "0px";
+        // div.style.top = "0px";
+        // div.style.width = "100px";
+        // div.style.height = "100px";
+        // div.style.background = "cyan";
+        // div.style.color = "blue";
+        // div.style.zIndex = 100;
+        divLabel.style.transition = "0s";
+        textDiv.style.transition = "0s";
+        // textDiv.resizable();
+
+        // document.body.appendChild(div);
+
+
+
+        textArea.addEventListener("mousedown", function (e) {
+            console.log("textAreaCicked")
+            //   ctx.globalCompositeOperation = 'source-over';
+            ctx.globalCompositeOperation = 'destination-out';
+
+        }, true);
+
+        textArea.addEventListener("mouseup", function (e) {
+
+        }, true)
+
+        // // textArea.addEventListener('mousemove',function(e){
+        // //     console.log("Text area realeased")
+        // //     if (isResizing == true) {
+        // //         console.log("resizing:"+isResizing)
+        // //     } else {
+        // //         document.querySelector(".interrupter").style.display = "none"
+        // //     }
+
+
+        // },true);
+
+
+
+
+
+        divLabel.addEventListener('mousedown', function (e) {
+            isDown = true;
+            // e = e || window.event;
+            // // var curWindow = e.target.id; 
+            // var getParentID = $(this).parent().attr('id');
+            console.log(e)
+
+            offset = [
+                textDiv.offsetLeft - e.clientX,
+                textDiv.offsetTop - e.clientY
+            ];
+        }, true);
+     
+
+        document.addEventListener('mouseup', function () {
+            isDown = false;
+        }, true);
+
+        document.addEventListener('mousemove', function (event) {
+            event.preventDefault();
+            if (isDown) {
+                curSize = 0;
+
+
+                ctx.globalCompositeOperation = 'destination-out';
+
+                mousePosition = {
+
+                    x: event.clientX,
+                    y: event.clientY
+
+                };
+
+                var ele = event.target.parentElement;
+                ele.style.left = (mousePosition.x + offset[0]) + 'px';
+                ele.style.top = (mousePosition.y + offset[1]) + 'px';
+
+            } else { ctx.globalCompositeOperation = 'source-over'; }
+        }, true);
+    }
+
+
+
+</script>
+
+</html>
