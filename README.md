@@ -17,6 +17,9 @@ Online Code share, Note share, Link share, Share share share share Platform. Not
 
 https://sohamkore.github.io/Noteboard-Online/
 
+![Untitled video - Made with Clipchamp](https://github.com/SohamKore/Noteboard-Online/assets/119067189/970a8cda-d420-4df7-98f8-08bc9295320c)
+
+
 # Screenshots
 ![featurePreviewNoteboard](https://github.com/SohamKore/Noteboard-Online/assets/119067189/c8d59e58-a927-4b1f-a06e-64df9191e920)
 
