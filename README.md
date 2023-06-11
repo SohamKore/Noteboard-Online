@@ -6,7 +6,15 @@
 Online Code share, Note share, Link share, Share share share share Platform. Noteboard online, Platform to share text/code/links online. Also, you can draw, plan, and add text windows. Try it out; it's actually cool. I used my very own color theme that I handpicked. Fin.
 <hr>
 
-<a href="https://sohamkore.github.io/Noteboard-Online/"><h1 style="text-decoration: underline;"><strong>PREVIEW PROJECT:</strong></h1> </a>
+
+  <h1 style="text-decoration: underline;">
+    <strong>
+      <a href="https://sohamkore.github.io/Noteboard-Online/">
+      PREVIEW PROJECT:
+        </a>
+    </strong>
+  </h1>
+
 https://sohamkore.github.io/Noteboard-Online/
 
 # Screenshots
