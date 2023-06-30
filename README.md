@@ -17,6 +17,9 @@ Online Code share, Note share, Link share, Share share share share Platform. Not
 
 https://sohamkore.github.io/Noteboard-Online/
 
+# <a href="https://github.com/SohamKore/Maharashtra-Tourism-App"> Check out my other project - Maharashtra Virtual Tour </a>
+(Maharashtra tourism app is a virtual tourism app that includes famous tourist places from every district of maharashtra With their description streetview, Panorama and 360. This app uses Google Street View api and Mapbox Api. Its easy to add places in this app using Lat and Long coordinate of streetview. you can customize it and add your own places.)
+
 ![Untitled video - Made with Clipchamp](https://github.com/SohamKore/Noteboard-Online/assets/119067189/970a8cda-d420-4df7-98f8-08bc9295320c)
 
 
