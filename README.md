@@ -2,7 +2,7 @@
   <img src="https://user-images.githubusercontent.com/119067189/244934977-fda305c7-fbf7-419c-bb9c-48f50565e582.png" width="200" alt="Logo">
 </p>
 
-<a href="https://sohamkore.github.io/Projects/"> Check out my all projects here</a>
+<a href="https://sohamkore.github.io/Projects/"> Check out all  my projects here</a>
 
 # Noteboard-Online
 Online Code share, Note share, Link share, Share share share share Platform. Noteboard online, Platform to share text/code/links online. Also, you can draw, plan, and add text windows. Try it out; it's actually cool. I used my very own color theme that I handpicked. Fin.
